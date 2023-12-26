@@ -1,0 +1,28 @@
+name: Python Cracker Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Replace with the Python version you want to use
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests termcolor
+
+    - name: Run Python Script
+      run: python your_script_name.py  # Replace with the actual name of your Python script
+
